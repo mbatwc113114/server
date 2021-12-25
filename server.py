@@ -25,7 +25,7 @@ def handel(client):
             client.close()
             nickname = nicknames[index]
             nicknames.remove(nickname)
-            aloud(f'{nickname} left')
+            aloud('{} left'.format(nickname))
             break
 
 def receive_client():
@@ -37,7 +37,7 @@ def receive_client():
         nickname = client.recv(1024).decode('ascii')
         nicknames.append(nickname)
         clients.append(client)
-        aloud(f"{nickname} joined!")
+        aloud("{} joined!".format(nickname))
         handel_thread = threading.Thread(target=handel, args=(client,))
         handel_thread.start()
 if __name__ == "__main__":
