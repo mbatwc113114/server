@@ -8,7 +8,7 @@ clients = []
 nicknames = []
 
 server.listen()
-print('server is listening......', ip)
+
 def aloud(message):
     for client in clients:
         client.send(message.encode("ascii"))
@@ -25,7 +25,7 @@ def handel(client):
             client.close()
             nickname = nicknames[index]
             nicknames.remove(nickname)
-            aloud('{} left'.format(nickname))
+            aloud(f'{nickname} left')
             break
 
 def receive_client():
@@ -37,7 +37,7 @@ def receive_client():
         nickname = client.recv(1024).decode('ascii')
         nicknames.append(nickname)
         clients.append(client)
-        aloud("{} joined!".format(nickname))
+        aloud(f"{nickname} joined!")
         handel_thread = threading.Thread(target=handel, args=(client,))
         handel_thread.start()
 if __name__ == "__main__":
