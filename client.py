@@ -1,7 +1,7 @@
 import socket
 import threading
-ip = "127.0.0.1"
-port = 9999
+ip = "172.28.188.203"
+port = 55555
 client = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 # connection to server
 client.connect((ip,port))
