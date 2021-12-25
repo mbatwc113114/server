@@ -8,7 +8,7 @@ clients = []
 nicknames = []
 
 server.listen()
-
+print('server is listening......')
 def aloud(message):
     for client in clients:
         client.send(message.encode("ascii"))
