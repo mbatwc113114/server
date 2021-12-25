@@ -1,6 +1,6 @@
 import socket
 import threading
-ip = "47.251.17.186"
+ip = socket.gethostbyname(socket.gethostname())
 port = 9999
 server = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 server.bind((ip,port))
@@ -8,7 +8,7 @@ clients = []
 nicknames = []
 
 server.listen()
-print('server is listening......')
+print('server is listening......', ip)
 def aloud(message):
     for client in clients:
         client.send(message.encode("ascii"))
