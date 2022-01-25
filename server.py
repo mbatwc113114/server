@@ -1,6 +1,6 @@
 import socket
 import threading
-ip = "47.251.17.186"
+ip = socket.gethostbyname(socket.gethostname)
 port = 9999
 server = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 server.bind((ip,port))
